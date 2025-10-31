@@ -1,0 +1,169 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #f4f6f9;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+}
+
+main {
+  background: #fff;
+  width: 90%;
+  max-width: 1000px;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+  padding: 32px;
+  margin: 10px auto;
+}
+
+/* Header */
+header {
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+header h1 {
+  font-size: 2.6rem;
+  color: #111;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* Content Columns */
+.content {
+  display: flex;
+  gap: 36px;
+  align-items: flex-start;
+}
+
+#scoresection,
+.addscores {
+  background: #fafafa;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+#scoresection {
+  width: 62%;
+}
+
+.addscores {
+  width: 36%;
+}
+
+/* Scores Header */
+.scores-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.scores-header h2 {
+  color: #222;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* Small outlined Refresh button like wireframe */
+.Refresh-btn {
+  background: #fff;
+  color: #111;
+  border: 2px solid #111;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.Refresh-btn:hover {
+  background: #f0f0f0;
+}
+
+/* Scores list (box with striped rows) */
+#scores-list {
+  list-style: none;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  padding: 6px;
+  background: #fff;
+  max-height: 300px;
+  overflow: auto;
+}
+
+#scores-list li {
+  padding: 10px 12px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+}
+
+#scores-list li:nth-child(odd) {
+  background: #f7f7f9;
+}
+
+#scores-list li:last-child {
+  border-bottom: none;
+}
+
+/* Add Score Section */
+.addscores h2 {
+  margin-bottom: 12px;
+  color: #222;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form input {
+  padding: 10px 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+form button {
+  background: #fff;
+  color: #111;
+  border: 2px solid #111;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 700;
+  width: 110px;
+  align-self: flex-start;
+}
+
+form button:hover {
+  background: #f7f7f7;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .content {
+    flex-direction: column;
+  }
+
+  #scoresection,
+  .addscores {
+    width: 100%;
+  }
+}
