@@ -1,38 +1,39 @@
-import { savePlayer, showPlayers } from './storage.js';
+import { addScore, getScores } from './api.js';
+import displayScores from './display.js';
 
-export function setupForm() {
+export const setupForm = () => {
   const form = document.getElementById('score-form');
   const inputName = document.getElementById('nameform');
   const inputNumber = document.getElementById('scoreform');
   const refbtn = document.getElementById('refresh-btn');
 
-  form.addEventListener('submit', (e) => {
+  if (!form || !inputName || !inputNumber) {
+    console.error('❌ Form or inputs not found in DOM');
+    return;
+  }
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const name = inputName.value.trim();
+    const user = inputName.value.trim();
     const score = inputNumber.value.trim();
-    const namePattern = /^[A-Za-z\s]+$/;
-    const numericScore = Number(score);
 
-    if (name === '' || score === '') {
-      alert('Fields are empty');
-      return;
-    } else if (!namePattern.test(name)) {
-      alert('Name must contain only letters');
-      return;
-    } else if (isNaN(score)) {
-      alert('Score must be a valid number');
-      return;
-    } else if (numericScore < 0 || numericScore > 100) {
-      alert('Score must be between 0 and 100');
+    if (!user || !score) {
+      alert('Please fill all fields');
       return;
     }
 
-    savePlayer(name, score);
-    form.reset();
-    showPlayers();
+    const res = await addScore(user, score);
+    if (res?.result) {
+      alert('✅ Score sent successfully!');
+      form.reset();
+    } else {
+      alert('❌ Error sending score');
+    }
   });
 
-  document.addEventListener('DOMContentLoaded', showPlayers);
-  refbtn.addEventListener('click', showPlayers);
-}
+  refbtn.addEventListener('click', async () => {
+    const scores = await getScores();
+    displayScores(scores);
+  });
+};
