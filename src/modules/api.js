@@ -1,5 +1,5 @@
 const baseUrl = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/';
-const gameId = 'MALIK HERE'; // 👈 yahan apna gameId likhna na bhoolna!
+const gameId = 'Game with ID: ABC123 created.'; // 👈 yahan apna gameId likhna na bhoolna!
 
 // send score
 export const addScore = async (user, score) => {
