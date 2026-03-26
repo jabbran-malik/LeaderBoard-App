@@ -7,3 +7,5 @@ dist/
 # Ignore environment and system files
 .env
 .DS_Store
+.vercel
+.env*.local
